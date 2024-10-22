@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting App</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+        body{
+            font-family: "Source Code Pro", monospace;
+        }
+        .content {
+            background-image: url('/vector.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;   
+        }
+
+        .boxShadow {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .table>tbody{
+            vertical-align: middle;
+        }
+        .rounded-table {
+            border-collapse: separate;
+            /* Make sure borders collapse doesn't interfere */
+            border-spacing: 0;
+            /* No spacing between cells */
+            border-radius: 10px;
+            /* Add border radius */
+            border: 1px solid black;
+            /* Ensure the outer border is styled */
+            overflow: hidden;
+            /* To ensure content respects rounded corners */
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+        }
+
+        .rounded-table thead th:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        .rounded-table thead th:last-child {
+            border-top-right-radius: 10px;
+        }
+
+        .rounded-table thead th {
+            /* background-color: #9631F2; */
+            background-color: #4a47a5;
+        }
+
+        .rounded-table tbody tr:last-child td:first-child {
+            border-bottom-left-radius: 10px;
+        }
+
+        .rounded-table tbody tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
+        }
+
+        .btn-warning{
+            background-color: #4a47a5;
+            border:1px solid #1e19a5;
+            color: white;
+        }
+
+        .btn-warning:hover{
+            background-color: #1e19a5;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg border-black border-bottom" style="background-color: #26251E;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="height: 40px; color: #ffffff;">VYFT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+
+                    <a type="button" class="btn btn-warning mx-1 my-1" href="/results">Hi User</a>
+
+                    <a type="button" class="btn btn-warning mx-1 my-1" class="nav-link" href="/logout">Log Out</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content d-flex flex-column justify-content-center align-items-center" style="height: 90vh;">
+        <h1 class="my-3 animate__animsated animate__fadeInDown" style="color:#ffffff; font-weight: bolder;"> VOTING RESULTS</h1>
+
+        <h4  style="color:#ffffff; font-weight: bolder;"><%= message %></h4>
+        <h4  style="color:#ffffff; font-weight: bolder;">Thank You for Voting</h4>
+
+        <div class=" rounded-table  boxShadow w-75 d-flex" style=" height: 25rem; overflow-y: auto; ">
+            <table
+                class="table table-striped table-hover w-100 table-bordered border-black  animate__animated animate__fadeIn animate__slower">
+                <thead>
+                    <tr class="text-center">
+                        <th>Logo</th>
+                        <th>Name</th>
+                        <th>Votes Received</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% voters.forEach((items, index)=> { %>
+                        <!-- ----------INCLUDE hidden-row IN TR LATER---------- -->
+                        <tr class="table-row text-center hidden-row">
+                            <td>
+                                <i class="fa-brands fa-2x <%= items.fa_name %>"></i>
+                            </td>
+                            <td>
+                                <%= items.name %>
+                            </td>
+                            <td>
+                                <!-- -----------Update Button----------- -->
+                                <%= items.votes %>
+
+                            </td>
+                        </tr>
+
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        
+
+    </div>
+
+    <script>
+        window.onload = function () {
+            window.history.pushState(null, '', window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, '', window.location.href);
+            };
+        };
+    </script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

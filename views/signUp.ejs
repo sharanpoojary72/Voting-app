@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        body {
+            background-image: url('/binary-map.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* backdrop-filter: brightness(0.4); */
+        }
+
+        .card {
+            border-radius: 10px;
+            background-color: rgba(245, 245, 220, 0.2);
+            /* Adjusted transparency for background */
+            backdrop-filter: blur(10px);
+            /* Added blur effect */
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            /* Added padding to the card */
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container login-container">
+        <div class="card animate__animated animate__fadeInDown">
+            <!-- Form Section -->
+            <div class="form-section">
+                <h2 class="text-center mb-4">Sign Up</h2>
+                <form action="/signup" method="POST">
+                    <!-- Username field -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Enter your username" required>
+                    </div>
+
+                    <!-- Password field -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Enter your password" required>
+                    </div>
+
+                    <!-- Sign up button -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+                </form>
+
+                <!-- Sign in link -->
+                <div class="text-center mt-3">
+                    <p>Already have an account?
+                        <button class="btn btn-outline-light">
+
+                        <a href="/login">Login</a>
+                    </button> 
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
